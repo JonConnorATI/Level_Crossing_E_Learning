@@ -1,0 +1,60 @@
+body {
+    font-family: serif, Arial, Tahoma;
+    margin: 0;
+    background-color: #FFB347; /* Orange Background */
+    color: #000; /* Black Text */
+    font-size: 12px;
+
+}
+
+body a {
+    text-decoration: none;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #001F3F; /* Navy Blue */
+    color: #fff; /* White Text */
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+header {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+
+
+footer {
+    bottom: 0;
+}
+
+/* Index page */
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+    width: 70%;
+}
+
+.title {
+    margin: 0 auto;
+}
+
+.start-button {
+    background-color: #001F3F; /* Navy Blue */
+    color: #fff; /* White Text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 2rem;
+}
