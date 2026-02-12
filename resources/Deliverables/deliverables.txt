@@ -1,0 +1,5 @@
+- Project plan and timelines  
+- GitHub repository and workflow conventions  
+- Website schema and design templates  
+- Alpha and beta test results  
+- Stakeholder review summary
