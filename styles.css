@@ -45,6 +45,12 @@ footer {
     width: 70%;
 }
 
+.landing-page p {
+    font-size: 1.2rem;
+}
+
+    
+
 .title {
     margin: 0 auto;
 }
@@ -56,5 +62,5 @@ footer {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
