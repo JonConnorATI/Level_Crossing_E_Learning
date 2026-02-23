@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Course</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Station 1</h1>
+        <nav> 
+            <a href="" class="disabled">Back</a> 
+            <a href="../template/index.html">Home</a> 
+            <a href="#" class="disabled">Next</a> 
+        </nav>
+    </header>
+    <main>
+        <section class="module-intro">
+            <h1>Local Control</h1>
+            <p> In this module, we will cover the basics of local control in level crossing systems and give you the knowledge to understand and manage these systems effectively.</p>
+            <p> Local control refers to the ability to manage and operate level crossing systems from a nearby location, such as a control room or a local station. This is crucial for ensuring the safety and efficiency of train operations at level crossings.</p>
+        </section>
+        <section class="module-content">
+            <h2>Operator workflow</h2>
+            <div class="content-item">
+                <p>When staff request to switch a level crossing to local control.</p> 
+                <p>Firstly confirm barriers are in the raised position.</p>
+            </div>
+            <div class="content-item">
+                <p>Ground staff turn their local control key.</p>
+                <p>Your local control button will flash yellow.</p>
+            </div>
+            <div class="content-item">
+                <p>Press the local control button.</p>
+                <p>The button will now turn solid yellow.</p>
+            </div>
+            <div class="content-item">
+                <p>Your touch screen will visually change.</p>
+                <p>Crossing Clear, Initiation, Raise/Lower and Emergency Alert buttons will be hidden.</p>
+            </div>
+            <div class="content-item">
+                <p>Signaller should be advised the crossing is now under local control.</p>
+                <p>Inform the regulator (if during normal operating hours) and enter a note in the TRB.</p>
+            </div>
+            <div class="content-item">
+                <p>When the staff are finished with local control. Confirm the barriers are raised.</p>
+                <p>Ask them to turn their key.</p>
+            </div>
+            <div class="content-item">
+                <p>Your local control button will now flash yellow.</p>
+                <p>When pressed, the button will return to grey colour</p>
+                <p>All the hidden buttons will reappear.</p>
+            </div>
+            <div class="content-item">
+                <p>Signaller Should be advised the crossing is now in NTCC control.</p>
+                <p>Inform the regulator (if during normal operating hours) and enter a note in the TRB.</p>
+            </div>
+
+            <button id="start-quiz-button" class="disabled">Start Quiz</button>
+                
+        </section>
+        
+        
+<!-- Intro Audio -->
+<audio id="intro-audio" src="audio/intro.mp3"></audio>
+
+<!-- Module Content Audio Files -->
+<audio id="content-audio-1" src="audio/content-1.mp3"></audio>
+<audio id="content-audio-2" src="audio/content-2.mp3"></audio>
+<audio id="content-audio-3" src="audio/content-3.mp3"></audio>
+<audio id="content-audio-4" src="audio/content-4.mp3"></audio>
+<audio id="content-audio-5" src="audio/content-5.mp3"></audio>
+<audio id="content-audio-6" src="audio/content-6.mp3"></audio>
+<audio id="content-audio-7" src="audio/content-7.mp3"></audio>
+<audio id="content-audio-8" src="audio/content-8.mp3"></audio>
+
+
+    </main>
+            
+    <footer>
+        <p>&copy; Jon Connor 2026</p>
+    </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* -------------------------
+       INTRO AUDIO
+    --------------------------*/
+    const introAudio = document.getElementById("intro-audio");
+    const introItems = document.querySelectorAll(".module-intro > *");
+
+    /* Intro reveal timings (seconds) */
+    const introTimes = [0, 3, 7, 12];
+
+    /* -------------------------
+       MODULE CONTENT ITEMS + AUDIO
+    --------------------------*/
+    const contentItems = document.querySelectorAll(".module-content .content-item");
+
+    // Build an array of audio elements dynamically
+    const contentAudios = [];
+    for (let i = 1; i <= contentItems.length; i++) {
+        contentAudios.push(document.getElementById(`content-audio-${i}`));
+    }
+
+    const startQuizBtn = document.getElementById("start-quiz-button");
+
+    /* -------------------------
+       AUTOPLAY REQUIREMENT
+    --------------------------*/
+    document.body.addEventListener("click", () => {
+        if (introAudio.paused) introAudio.play();
+    }, { once: true });
+
+    /* -------------------------
+       INTRO AUDIO PROGRESS
+    --------------------------*/
+    introAudio.addEventListener("timeupdate", () => {
+        const t = introAudio.currentTime;
+
+        introItems.forEach((item, i) => {
+            if (t >= introTimes[i]) {
+                item.classList.add("visible");
+            }
+        });
+    });
+
+    /* -------------------------
+       WHEN INTRO AUDIO ENDS → START FIRST CONTENT AUDIO
+    --------------------------*/
+    introAudio.addEventListener("ended", () => {
+        playContentAudio(0);
+    });
+
+    /* -------------------------
+       FUNCTION: PLAY EACH CONTENT AUDIO IN SEQUENCE
+    --------------------------*/
+    function playContentAudio(index) {
+        if (index >= contentAudios.length) {
+            // All items done → show Start Quiz button
+            startQuizBtn.classList.add("visible");
+            return;
+        }
+
+        const audio = contentAudios[index];
+        const item = contentItems[index];
+
+        // Reveal the item as soon as its audio starts
+        audio.addEventListener("play", () => {
+            item.classList.add("visible");
+        }, { once: true });
+
+        // When this audio ends → play the next one
+        audio.addEventListener("ended", () => {
+            playContentAudio(index + 1);
+        }, { once: true });
+
+        audio.play();
+    }
+
+});
+</script>
+
+
+</body>
+
+</html>
