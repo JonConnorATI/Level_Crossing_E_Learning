@@ -26,6 +26,9 @@
             <p>In this module, we will cover the basics of local control in level crossing systems and give you the knowledge to understand and manage these systems effectively.<br><br>Local control refers to the ability to manage and operate level crossing systems from a nearby location, such as a control room or a local station. This is crucial for ensuring the safety and efficiency of train operations at level crossings.</p>
         </section>
 
+        
+
+
         <!-- MODULE CONTENT SECTION -->
         <section class="module-content">
 
@@ -74,6 +77,56 @@
 
         <!-- START QUIZ BUTTON -->
         <button id="start-quiz-button" class="disabled">Start Quiz</button>
+
+        <!-- QUIZ CONTAINER (initially hidden) -->
+<section id="quiz-section" class="hidden">
+
+    <div class="quiz-question">
+        <p>1. What must be confirmed before switching to local control?</p>
+        <label><input type="radio" name="q1" value="A"> Barriers are raised</label>
+        <label><input type="radio" name="q1" value="B"> Barriers are lowered</label>
+        <label><input type="radio" name="q1" value="C"> Staff are on break</label>
+    </div>
+
+    <div class="quiz-question">
+        <p>2. What happens when ground staff turn their key?</p>
+        <label><input type="radio" name="q2" value="A"> Button turns red</label>
+        <label><input type="radio" name="q2" value="B"> Button flashes yellow</label>
+        <label><input type="radio" name="q2" value="C"> Barriers lower automatically</label>
+    </div>
+
+    <div class="quiz-question">
+        <p>3. What visually changes on the touchscreen?</p>
+        <label><input type="radio" name="q3" value="A"> All buttons disappear</label>
+        <label><input type="radio" name="q3" value="B"> Raise/Lower and Emergency buttons hide</label>
+        <label><input type="radio" name="q3" value="C"> Screen turns black</label>
+    </div>
+
+    <div class="quiz-question">
+        <p>4. What should the signaller do when local control ends?</p>
+        <label><input type="radio" name="q4" value="A"> Ignore it</label>
+        <label><input type="radio" name="q4" value="B"> Notify regulator and update TRB</label>
+        <label><input type="radio" name="q4" value="C"> Lower the barriers</label>
+    </div>
+
+</section>
+
+<p id="nav-instruction" class="hidden nav-instruction">
+    <!-- JS will fill this when needed -->
+</p>
+
+<!-- SUBMIT / RETRY BUTTON -->
+<button id="submit-quiz-button" class="disabled hidden">Submit</button>
+
+<!-- FEEDBACK MODAL -->
+<div id="quiz-modal" class="modal hidden">
+    <div class="modal-content">
+        <h2 id="modal-title"></h2>
+        <p id="modal-score"></p>
+        <button id="modal-close">Close</button>
+    </div>
+</div>
+
 
         <!-- AUDIO ELEMENTS -->
         <audio id="intro-audio" src="resources/audio/content-1.mp3"></audio>

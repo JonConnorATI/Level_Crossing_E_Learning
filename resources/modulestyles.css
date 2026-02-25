@@ -1,3 +1,7 @@
+/* --------------------------------------------------
+   BASE STYLES
+-------------------------------------------------- */
+
 body {
     font-family: sans-serif, Arial, Tahoma;
     margin: 0;
@@ -6,21 +10,23 @@ body {
     font-size: 12px;
 }
 
-body a {
+a {
     text-decoration: none;
 }
 
-
-
-body h2 {
+h2 {
     font-size: 2rem;
 }
 
-main p, nav a {
+main p,
+nav a {
     font-size: 1.2rem;
 }
 
-/* HEADER */
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+
 header {
     background-color: #001F3F;
     color: #fff;
@@ -53,7 +59,10 @@ nav a {
     font-weight: bold;
 }
 
-/* FOOTER */
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
 footer {
     background-color: #001F3F;
     color: #fff;
@@ -64,12 +73,18 @@ footer {
     z-index: 100;
 }
 
-/* MAIN */
+/* --------------------------------------------------
+   MAIN LAYOUT
+-------------------------------------------------- */
+
 main {
     padding: 100px 20px 60px;
 }
 
-/* INTRO */
+/* --------------------------------------------------
+   INTRO SECTION
+-------------------------------------------------- */
+
 .module-intro {
     display: flex;
     flex-direction: column;
@@ -78,7 +93,10 @@ main {
     width: 80%;
 }
 
-/* CONTENT */
+/* --------------------------------------------------
+   CONTENT SECTION
+-------------------------------------------------- */
+
 .module-content {
     display: flex;
     flex-direction: column;
@@ -95,9 +113,13 @@ main {
     padding: 20px;
     border-radius: 10px;
     width: 70%;
+    scroll-margin-top: 150px; /* smooth scroll offset */
 }
 
-/* QUIZ BUTTON */
+/* --------------------------------------------------
+   START QUIZ BUTTON
+-------------------------------------------------- */
+
 #start-quiz-button {
     display: block;
     background-color: #001F3F;
@@ -110,15 +132,21 @@ main {
     margin: 20px auto;
 }
 
-/* ANIMATION */
+/* --------------------------------------------------
+   ANIMATION (HIDDEN STATE)
+-------------------------------------------------- */
+
 .module-intro > *,
 .module-content .content-item,
 #start-quiz-button {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
-
 }
+
+/* --------------------------------------------------
+   ANIMATION (VISIBLE STATE)
+-------------------------------------------------- */
 
 .module-content .content-item.visible,
 .module-intro > *.visible,
@@ -127,10 +155,98 @@ main {
     transform: translateY(0) !important;
 }
 
+/* --------------------------------------------------
+   GENERIC HIDDEN CLASS
+-------------------------------------------------- */
 
+.hidden {
+    display: none !important;
+}
 
+/* --------------------------------------------------
+   QUIZ QUESTIONS
+-------------------------------------------------- */
 
-/* RESPONSIVE */
+.quiz-question {
+    background: #004d00;
+    color: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 70%;
+    border-radius: 10px;
+    font-size: 1.2rem;
+}
+
+.quiz-question label {
+    display: block;
+    margin: 8px 0;
+}
+
+/* --------------------------------------------------
+   SUBMIT BUTTON
+-------------------------------------------------- */
+
+#submit-quiz-button {
+    background-color: #001F3F;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+#submit-quiz-button.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* --------------------------------------------------
+   MODAL
+-------------------------------------------------- */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#modal-close {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #001F3F;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
 @media (max-width: 500px) {
     header {
         flex-direction: column;
@@ -141,4 +257,32 @@ main {
         position: static;
         margin-top: 10px;
     }
+}
+
+/* DISABLED NAV LINKS */
+nav a.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* FLASHING NEXT BUTTON */
+@keyframes flashNext {
+    0% { background-color: #001F3F; }
+    50% { background-color: #ffcc00; color: #000; }
+    100% { background-color: #001F3F; }
+}
+
+nav a.flash {
+    animation: flashNext 1s infinite;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+/* NAV INSTRUCTION TEXT */
+.nav-instruction {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #001F3F;
 }
