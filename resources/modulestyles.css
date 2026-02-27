@@ -244,6 +244,16 @@ main {
 }
 
 /* --------------------------------------------------
+   TEMP IMAGE STYLES
+-------------------------------------------------- */
+.construction-image {
+    width: 40%;
+    display: block;
+    margin: 10px auto;
+}
+
+
+/* --------------------------------------------------
    RESPONSIVE
 -------------------------------------------------- */
 
@@ -257,7 +267,7 @@ main {
         position: static;
         margin-top: 10px;
     }
-   img {
+   .construction-image {
       width: 90%;
    }
 }
