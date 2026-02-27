@@ -120,7 +120,7 @@ main {
    START QUIZ BUTTON
 -------------------------------------------------- */
 
-#start-quiz-button {
+#start-quiz-button, #start-course-button {
     display: block;
     background-color: #001F3F;
     color: #fff;
@@ -129,8 +129,20 @@ main {
     border-radius: 10px;
     cursor: pointer;
     font-size: 1.5rem;
+    
+}
+
+#start-quiz-button {
     margin: 20px auto;
 }
+
+#start-course-button {
+    margin: 100px auto;
+}
+
+
+
+
 
 /* --------------------------------------------------
    ANIMATION (HIDDEN STATE)
