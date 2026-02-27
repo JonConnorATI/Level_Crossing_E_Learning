@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const introAudio = document.getElementById("intro-audio");
     const introItems = document.querySelectorAll(".module-intro > *");
 
-    const introTimes = [0, 2, 3, 4];
+    const introTimes = [0, 2, 12, 4];
 
     const startQuizBtn = document.getElementById("start-quiz-button");
 
