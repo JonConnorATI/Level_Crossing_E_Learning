@@ -84,5 +84,14 @@ ul li {
     border-radius: 10px;
     cursor: pointer;   
     font-size: 1.5rem;
+    animation: flash-yellow 1s infinite;
     
 }
+
+/* flashing start button */
+@keyframes flash-yellow {
+    0% { background-color: #001F3F; }
+    50% { background-color: #ffcc00; color: #000; }
+    100% { background-color: #001F3F; }
+}
+
